@@ -3,15 +3,25 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 )
+
+const accountBalanceName = "balance.txt"
 
 func writeBalanceToFile(balance float64) {
 	balanceText := fmt.Sprint(balance)
-	os.WriteFile("balance.txt", []byte(balanceText), 0644)
+	os.WriteFile(accountBalanceName, []byte(balanceText), 0644)
+}
+
+func readBalanceFromFile() float64 {
+	data, _ := os.ReadFile(accountBalanceName)
+	balanceText := string(data)
+	balance, _ := strconv.ParseFloat(balanceText, 64)
+	return balance
 }
 
 func main() {
-	accountBalance := 1000.00
+	accountBalance := readBalanceFromFile()
 
 	fmt.Println("Welcome to Go Bank!")
 
