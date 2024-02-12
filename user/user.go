@@ -7,18 +7,18 @@ import (
 )
 
 type User struct {
-	firstName string
+	FirstName string
 	lastName  string
 	birthdate string
 	createdAt time.Time
 }
 
 func (u User) OutputUserDetails() {
-	fmt.Println(u.firstName, u.lastName, u.birthdate)
+	fmt.Println(u.FirstName, u.lastName, u.birthdate)
 }
 
 func (u *User) ClearUserName() {
-	u.firstName = ""
+	u.FirstName = ""
 	u.lastName = ""
 }
 
@@ -28,7 +28,7 @@ func NewUser(firstName, lastName, birthdate string) (*User, error) {
 	}
 
 	return &User{
-		firstName: firstName,
+		FirstName: firstName,
 		lastName:  lastName,
 		birthdate: birthdate,
 		createdAt: time.Now(),
