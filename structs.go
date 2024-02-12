@@ -26,10 +26,10 @@ func main() {
 
 	// ... do something awesome with that gathered data!
 
-	outputUserDetails(appUser)
+	outputUserDetails(&appUser)
 }
 
-func outputUserDetails(userData user) {
+func outputUserDetails(userData *user) {
 	fmt.Println(userData.firstName, userData.lastName, userData.birthdate)
 }
 
