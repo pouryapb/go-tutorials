@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/Pallinder/go-randomdata"
 	"github.com/pouryapb/go-tutorials/bank/fileops"
 )
 
@@ -19,6 +20,8 @@ func main() {
 	}
 
 	fmt.Println("Welcome to Go Bank!")
+	fmt.Println("Address: ", randomdata.Address())
+	fmt.Println()
 
 	for {
 		presentOptions()
