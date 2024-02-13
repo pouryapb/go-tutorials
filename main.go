@@ -7,16 +7,36 @@ import (
 	"strings"
 
 	"github.com/pouryapb/go-tutorials/note-app/note"
+	"github.com/pouryapb/go-tutorials/note-app/todo"
 )
 
 func main() {
 	title, content := getNoteData()
+	text := getUserInput("Todo Text:")
+
 	userNote, err := note.New(title, content)
 
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
+
+	todo, err := todo.New(text)
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	todo.Display()
+	err = todo.Save()
+
+	if err != nil {
+		fmt.Println("Saving todo failed.")
+		return
+	}
+
+	fmt.Println("Saving todo succeeded!")
 
 	userNote.Display()
 	err = userNote.Save()
@@ -26,7 +46,7 @@ func main() {
 		return
 	}
 
-	fmt.Println("Saving succeeded!")
+	fmt.Println("Saving note succeeded!")
 }
 
 func getNoteData() (string, string) {
