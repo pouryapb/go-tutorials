@@ -27,6 +27,9 @@ func main() {
 	printAny(4)
 	printAny("interesting")
 
+	result := add(1, 2)
+	printAny(result)
+
 	title, content := getNoteData()
 	text := getUserInput("Todo Text:")
 
@@ -91,6 +94,10 @@ func getUserInput(prompt string) string {
 	return text
 }
 
-func printAny(value interface{}) {
+func printAny(value any) {
 	fmt.Println(value)
+}
+
+func add[T int | float32 | float64 | string](a, b T) T {
+	return a + b
 }
