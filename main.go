@@ -22,7 +22,10 @@ func main() {
 	fmt.Println(quadrouple)
 	fmt.Println(factorial(5))
 
-	fmt.Println(sumup(1, 10, 15))
+	fmt.Println(sumup(numbers...))
+	var m uint32 = 0
+	m -= 1
+	fmt.Println(m)
 }
 
 func sumup(numbers ...int) int {
