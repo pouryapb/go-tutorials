@@ -21,6 +21,16 @@ func main() {
 
 	fmt.Println(quadrouple)
 	fmt.Println(factorial(5))
+
+	fmt.Println(sumup(1, 10, 15))
+}
+
+func sumup(numbers ...int) int {
+	sum := 0
+	for _, val := range numbers {
+		sum += val
+	}
+	return sum
 }
 
 func transformNumbers[T int | float32 | float64](numbers *[]T, transfrom func(T) T) []T {
