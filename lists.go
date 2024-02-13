@@ -2,24 +2,58 @@ package main
 
 import "fmt"
 
+type Product struct {
+	id    string
+	title string
+	price float64
+}
+
 func main() {
-	var prices []float64 = []float64{1.2, 2, 3.98}
-	prices = append(prices, 3, 3, 4, 5, 9)
+	// 1)
+	hobbies := [3]string{"Guitar", "Games", "Coding"}
+	fmt.Println(hobbies)
 
-	fmt.Println(prices[1:3])
-	fmt.Println(prices[1:])
-	fmt.Println(prices[:3])
-	fmt.Println(len(prices))
-	fmt.Println(prices)
+	// 2)
+	fmt.Println(hobbies[0])
+	fmt.Println(hobbies[1:])
 
-	fmt.Println()
-	fmt.Println()
-	fmt.Println()
+	// 3)
+	mainHobbies := hobbies[:2]
+	fmt.Println(mainHobbies)
 
-	slice := prices[3:6]
-	slice[1] = 69
-	fmt.Println(prices)
-	fmt.Println(len(slice))
-	fmt.Println(cap(slice))
-	fmt.Println(slice[:cap(slice)])
+	// 4)
+	mainHobbies = mainHobbies[1:cap(mainHobbies)]
+	fmt.Println(mainHobbies)
+
+	// 5)
+	courseGoals := []string{"learning go?", "bulding cool stuff :D"}
+	fmt.Println(courseGoals)
+
+	// 6)
+	courseGoals[1] = "create cool stuff :>"
+	courseGoals = append(courseGoals, "understand other go codes?")
+	fmt.Println(courseGoals)
+
+	// 7)
+	products := []Product{
+		{
+			id:    "id-1",
+			title: "milk",
+			price: 6.99,
+		},
+		{
+			id:    "id-2",
+			title: "meat",
+			price: 99.99,
+		},
+	}
+	fmt.Println(products)
+
+	newProduct := Product{
+		"id-3",
+		"cups",
+		8.5,
+	}
+	products = append(products, newProduct)
+	fmt.Println(products)
 }
