@@ -24,6 +24,9 @@ type outputable interface {
 }
 
 func main() {
+	printAny(4)
+	printAny("interesting")
+
 	title, content := getNoteData()
 	text := getUserInput("Todo Text:")
 
@@ -86,4 +89,8 @@ func getUserInput(prompt string) string {
 	text = strings.TrimSuffix(text, "\r")
 
 	return text
+}
+
+func printAny(value interface{}) {
+	fmt.Println(value)
 }
