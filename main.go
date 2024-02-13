@@ -20,6 +20,7 @@ func main() {
 	test()
 
 	fmt.Println(quadrouple)
+	fmt.Println(factorial(5))
 }
 
 func transformNumbers[T int | float32 | float64](numbers *[]T, transfrom func(T) T) []T {
@@ -38,4 +39,11 @@ func createTransformer[T int | float64](factor T) func(T) T {
 	return func(number T) T {
 		return number * factor
 	}
+}
+
+func factorial(number int) int {
+	if number == 1 {
+		return number
+	}
+	return number * factorial(number-1)
 }
