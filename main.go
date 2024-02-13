@@ -10,6 +10,10 @@ import (
 	"github.com/pouryapb/go-tutorials/note-app/todo"
 )
 
+type saver interface {
+	Save() error
+}
+
 func main() {
 	title, content := getNoteData()
 	text := getUserInput("Todo Text:")
@@ -29,24 +33,30 @@ func main() {
 	}
 
 	todo.Display()
-	err = todo.Save()
-
+	err = saveData(todo)
 	if err != nil {
-		fmt.Println("Saving todo failed.")
 		return
 	}
 
 	fmt.Println("Saving todo succeeded!")
 
 	userNote.Display()
-	err = userNote.Save()
-
+	err = saveData(userNote)
 	if err != nil {
-		fmt.Println("Saving note failed.")
 		return
 	}
+}
 
-	fmt.Println("Saving note succeeded!")
+func saveData(data saver) error {
+	err := data.Save()
+
+	if err != nil {
+		fmt.Println("Saving data failed.")
+		return err
+	}
+
+	fmt.Println("Saving data succeeded!")
+	return nil
 }
 
 func getNoteData() (string, string) {
