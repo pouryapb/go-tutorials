@@ -16,7 +16,10 @@ func main() {
 	fmt.Println()
 	fmt.Println()
 
-	slice := prices[:3]
+	slice := prices[3:6]
 	slice[1] = 69
 	fmt.Println(prices)
+	fmt.Println(len(slice))
+	fmt.Println(cap(slice))
+	fmt.Println(slice[:cap(slice)])
 }
