@@ -14,6 +14,11 @@ func main() {
 		return num * 4
 	})
 
+	test := func() {
+		fmt.Println("this is anonymus")
+	}
+	test()
+
 	fmt.Println(quadrouple)
 }
 
