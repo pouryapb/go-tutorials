@@ -9,4 +9,14 @@ func main() {
 	fmt.Println(prices[1:3])
 	fmt.Println(prices[1:])
 	fmt.Println(prices[:3])
+	fmt.Println(len(prices))
+	fmt.Println(prices)
+
+	fmt.Println()
+	fmt.Println()
+	fmt.Println()
+
+	slice := prices[:3]
+	slice[1] = 69
+	fmt.Println(prices)
 }
