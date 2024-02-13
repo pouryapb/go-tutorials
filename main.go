@@ -9,6 +9,12 @@ func main() {
 	fmt.Println(double)
 	trip := transformNumbers(&floatNumbers, triple)
 	fmt.Println(trip)
+
+	quadrouple := transformNumbers(&numbers, func(num int) int {
+		return num * 4
+	})
+
+	fmt.Println(quadrouple)
 }
 
 func transformNumbers[T int | float32 | float64](numbers *[]T, transfrom func(T) T) []T {
