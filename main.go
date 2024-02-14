@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/pouryapb/go-tutorials/price-calc/cmdmanager"
 	"github.com/pouryapb/go-tutorials/price-calc/prices"
 )
@@ -12,6 +14,9 @@ func main() {
 		// fm := filemanager.New("prices.txt", fmt.Sprintf("result_%.0f.json", taxRate*100))
 		cmd := cmdmanager.New()
 		priceJob := prices.NewTaxIncludedPriceJob(cmd, taxRate)
-		priceJob.Process()
+		err := priceJob.Process()
+		if err != nil {
+			fmt.Println(err)
+		}
 	}
 }
