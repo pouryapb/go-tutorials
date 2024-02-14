@@ -2,29 +2,21 @@ package main
 
 import (
 	"fmt"
-	"time"
+
+	"github.com/pouryapb/go-tutorials/price-calc/cmdmanager"
+	"github.com/pouryapb/go-tutorials/price-calc/prices"
 )
 
-func greet(phrase string, doneChan chan bool) {
-	fmt.Println("Hello!", phrase)
-	doneChan <- true
-}
-
-func slowGreet(phrase string, doneChan chan bool) {
-	time.Sleep(3 * time.Second) // simulate a slow, long-taking task
-	fmt.Println("Hello!", phrase)
-	doneChan <- true
-	close(doneChan)
-}
-
 func main() {
-	done := make(chan bool)
+	taxRates := []float64{0, 0.07, 0.1, 0.15}
 
-	go greet("Nice to meet you!", done)
-	go greet("How are you?", done)
-	go slowGreet("How ... are ... you ...?", done)
-	go greet("I hope you're liking the course!", done)
-
-	for range done {
+	for _, taxRate := range taxRates {
+		// fm := filemanager.New("prices.txt", fmt.Sprintf("result_%.0f.json", taxRate*100))
+		cmd := cmdmanager.New()
+		priceJob := prices.NewTaxIncludedPriceJob(cmd, taxRate)
+		err := priceJob.Process()
+		if err != nil {
+			fmt.Println(err)
+		}
 	}
 }
