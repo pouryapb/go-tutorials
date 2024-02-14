@@ -4,21 +4,21 @@ import (
 	"fmt"
 
 	"github.com/pouryapb/go-tutorials/price-calc/conversion"
-	"github.com/pouryapb/go-tutorials/price-calc/filemanager"
+	"github.com/pouryapb/go-tutorials/price-calc/iomanager"
 )
 
 type TaxIncludedPriceJob struct {
-	TaxRate           float64                  `json:"taxRate"`
-	InputPrices       []float64                `json:"inputPrices"`
-	TaxIncludedPrices map[string]string        `json:"taxIncludedPrices"`
-	IOManager         *filemanager.FileManager `json:"-"`
+	TaxRate           float64             `json:"taxRate"`
+	InputPrices       []float64           `json:"inputPrices"`
+	TaxIncludedPrices map[string]string   `json:"taxIncludedPrices"`
+	IOManager         iomanager.IOManager `json:"-"`
 }
 
-func NewTaxIncludedPriceJob(fm *filemanager.FileManager, taxRate float64) *TaxIncludedPriceJob {
+func NewTaxIncludedPriceJob(io iomanager.IOManager, taxRate float64) *TaxIncludedPriceJob {
 	return &TaxIncludedPriceJob{
 		TaxRate:     taxRate,
 		InputPrices: []float64{10, 20, 30},
-		IOManager:   fm,
+		IOManager:   io,
 	}
 }
 
