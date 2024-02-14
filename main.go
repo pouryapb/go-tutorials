@@ -16,10 +16,10 @@ func slowGreet(phrase string, doneChan chan bool) {
 }
 
 func main() {
-	// go greet("Nice to meet you!")
-	// go greet("How are you?")
 	done := make(chan bool)
+	go greet("Nice to meet you!")
+	go greet("How are you?")
 	go slowGreet("How ... are ... you ...?", done)
-	// go greet("I hope you're liking the course!")
+	go greet("I hope you're liking the course!")
 	<-done
 }
