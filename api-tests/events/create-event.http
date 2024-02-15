@@ -2,10 +2,10 @@
 
 POST {{host}}/events
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdGVyLmNvbSIsImV4cCI6MTcwODAxNDI3OSwidXNlcklkIjowfQ.JSgX-eo0J-abbXL02-ZLOUyzbspK7wxHkPRTPNSgNAE
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdGVyLmNvbSIsImV4cCI6MTcwODAxNTI4MSwidXNlcklkIjoxfQ.1Ocn7w4D_n5dv_UrGwIGKcvR7zTLU4Uge-DELz2U46s
 
 {
-    "name": "Test event 2",
+    "name": "Test event",
     "description": "Another test event",
     "location": "Test location 2",
     "dateTime": "2026-02-01T15:30:00.000Z"
