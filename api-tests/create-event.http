@@ -4,8 +4,8 @@ POST {{host}}/events
 Content-Type: application/json
 
 {
-    "name": "Test event",
-    "description": "A test event",
-    "location": "Test location",
-    "dateTime": "2025-01-01T15:00:00.000Z"
+    "name": "Test event 2",
+    "description": "Another test event",
+    "location": "Test location 2",
+    "dateTime": "2026-02-01T15:30:00.000Z"
 }
