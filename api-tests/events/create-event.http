@@ -2,7 +2,7 @@
 
 POST {{host}}/events
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdGVyLmNvbSIsImV4cCI6MTcwODAxNTI4MSwidXNlcklkIjoxfQ.1Ocn7w4D_n5dv_UrGwIGKcvR7zTLU4Uge-DELz2U46s
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdGVyLmNvbSIsImV4cCI6MTcwODAxNzI0NSwidXNlcklkIjoxfQ.ETv-uCw-0w_VjoM5gk1EKD1_Nbbuhurg-8UJhNTCIOI
 
 {
     "name": "Test event",
