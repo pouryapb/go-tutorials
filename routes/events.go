@@ -6,7 +6,6 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/pouryapb/go-tutorials/rest-api/models"
-	"github.com/pouryapb/go-tutorials/rest-api/utils"
 )
 
 func getEvents(ctx *gin.Context) {
@@ -33,27 +32,15 @@ func getEventById(ctx *gin.Context) {
 }
 
 func createEvent(ctx *gin.Context) {
-	token := ctx.Request.Header.Get("Authorization")
-
-	if token == "" {
-		ctx.JSON(http.StatusUnauthorized, gin.H{"message": "not authorized."})
-		return
-	}
-
-	userId, err := utils.VerifyToken(token)
-	if err != nil {
-		ctx.JSON(http.StatusUnauthorized, gin.H{"message": "not authorized."})
-		return
-	}
-
 	var event models.Event
-	err = ctx.ShouldBindJSON(&event)
+	err := ctx.ShouldBindJSON(&event)
 
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"message": "Could not parse request data."})
 		return
 	}
 
+	userId := ctx.GetInt64("userId")
 	event.UserID = userId
 	err = event.Save()
 
