@@ -5,6 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/pouryapb/go-tutorials/rest-api/models"
+	"github.com/pouryapb/go-tutorials/rest-api/utils"
 )
 
 func signup(ctx *gin.Context) {
@@ -38,9 +39,15 @@ func login(ctx *gin.Context) {
 	err = user.ValidateCredentials()
 
 	if err != nil {
-		ctx.JSON(http.StatusUnauthorized, gin.H{"message": err.Error()})
+		ctx.JSON(http.StatusUnauthorized, gin.H{"message": "Could not authenticate user"})
 		return
 	}
 
-	ctx.JSON(http.StatusOK, gin.H{"message": "Login successful."})
+	token, err := utils.GenerateToken(user.Email, user.Id)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{"message": "Could not authenticate user"})
+		return
+	}
+
+	ctx.JSON(http.StatusOK, gin.H{"message": "Login successful.", "token": token})
 }
