@@ -1,0 +1,12 @@
+@host = http://localhost:8080
+
+POST {{host}}/events
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdGVyLmNvbSIsImV4cCI6MTcwODAxNzI0NSwidXNlcklkIjoxfQ.ETv-uCw-0w_VjoM5gk1EKD1_Nbbuhurg-8UJhNTCIOI
+
+{
+    "name": "Test event",
+    "description": "Another test event",
+    "location": "Test location 2",
+    "dateTime": "2026-02-01T15:30:00.000Z"
+}
