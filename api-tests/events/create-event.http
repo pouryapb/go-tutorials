@@ -2,6 +2,7 @@
 
 POST {{host}}/events
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdGVyLmNvbSIsImV4cCI6MTcwODAxNDI3OSwidXNlcklkIjowfQ.JSgX-eo0J-abbXL02-ZLOUyzbspK7wxHkPRTPNSgNAE
 
 {
     "name": "Test event 2",
